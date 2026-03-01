@@ -10,7 +10,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{EFA2761E-35CC-4DE3-AC4A-BB9C0B6C7260}" Name="StandardPLCProject" PrjFilePath="StandardPLCProject\StandardPLCProject.plcproj" TmcFilePath="StandardPLCProject\StandardPLCProject.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{03FB98DB-0930-5996-3CE9-51BF9D1390CC}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="StandardPLCProject\StandardPLCProject.tmc" TmcHash="{03FB98DB-0930-5996-3CE9-51BF9D1390CC}">
 					<Name>StandardPLCProject Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Contexts>
@@ -30,5 +30,22 @@
 				</Instance>
 			</Project>
 		</Plc>
+		<Io>
+			<Device Id="1" DevType="112" AmsPort="28673" AmsNetId="172.24.112.1.2.1" RemoteName="Device 1 (EtherCAT Automation Protocol)">
+				<Name>Device 1 (EtherCAT Automation Protocol)</Name>
+				<AddressInfo>
+					<Pnp>
+						<DeviceDesc>Ethernet (Realtek PCIe GbE Family Controller)</DeviceDesc>
+						<DeviceName>\DEVICE\{2A5E1397-AE68-463A-B11C-C7EDCF279A24}</DeviceName>
+						<DeviceData>c0185000f87f</DeviceData>
+					</Pnp>
+				</AddressInfo>
+				<Image Id="1" AddrType="1" ImageType="3">
+					<Name>Image</Name>
+				</Image>
+				<Ethernet DeviceDesc="Ethernet (Realtek PCIe GbE Family Controller)"/>
+				<Eap EapDeviceGuid="{03195967-44AA-4E97-96D2-EFECA237C096}"/>
+			</Device>
+		</Io>
 	</Project>
 </TcSmProject>
