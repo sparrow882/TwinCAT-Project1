@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.16">
+  <POU Name="MAIN" Id="{9d920f35-5d14-420b-82cb-73a41417625b}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+    fbTimer   : TON;         // Deklaracja naszego timera
+    bMrugnij  : BOOL;        // Zmienna, która będzie migać (Prawda/Fałsz)
+    tCzas     : TIME := T#1S; // Czas, co ile ma migać (1 sekunda)
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Wywołanie timera
+// IN: wejście (jeśli TRUE, zaczyna liczyć)
+// PT: Preset Time (zadany czas)
+fbTimer(IN := NOT fbTimer.Q, PT := tCzas);
+
+// Jeśli timer doliczył do końca (wyjście Q zrobiło się TRUE)
+IF fbTimer.Q THEN
+    bMrugnij := NOT bMrugnij; // Zmień stan zmiennej na przeciwny
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="57" Count="7" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
