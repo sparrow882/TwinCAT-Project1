@@ -1,2 +1,5 @@
 TwinCAT Project1.project.~u
 *.~u
+*.compileinfo
+*.tizip
+*.~u
