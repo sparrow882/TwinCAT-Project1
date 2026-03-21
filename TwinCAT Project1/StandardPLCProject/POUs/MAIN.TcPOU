@@ -3,23 +3,18 @@
   <POU Name="MAIN" Id="{9d920f35-5d14-420b-82cb-73a41417625b}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-    fbTimer   : TON;         // Deklaracja naszego timera
-    bMrugnij  : BOOL;        // Zmienna, która będzie migać (Prawda/Fałsz)
-    tCzas     : TIME := T#1S; // Czas, co ile ma migać (1 sekunda)
+    bLampa  AT %Q* : BOOL; // To jest nasza dioda
+    fbTimer : TON;         // Timer do mrugania
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[// Wywołanie timera
-// IN: wejście (jeśli TRUE, zaczyna liczyć)
-// PT: Preset Time (zadany czas)
-fbTimer(IN := NOT fbTimer.Q, PT := tCzas);
+      <ST><![CDATA[fbTimer(IN := NOT fbTimer.Q, PT := T#999MS); // Czekaj 0.5 sekundy
 
-// Jeśli timer doliczył do końca (wyjście Q zrobiło się TRUE)
 IF fbTimer.Q THEN
-    bMrugnij := NOT bMrugnij; // Zmień stan zmiennej na przeciwny
+    bLampa := NOT bLampa; // Zmień stan diody na przeciwny
 END_IF]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="57" Count="7" />
+      <LineId Id="93" Count="3" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>
